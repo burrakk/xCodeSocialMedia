@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_xcode"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="xCode Oku"></item>
+
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profilim"
+        android:icon="@drawable/profile_icon"
+        ></item>
+
+    <item
+        android:id="@+id/nav_post"
+        android:title="Yeni Gönderi"
+        android:icon="@drawable/add_post"
+        ></item>
+
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="Ana Sayfa"
+        android:icon="@drawable/home"
+        ></item>
+
+    <item
+        android:id="@+id/nav_friends"
+        android:title="Arkadaşlarım"
+        android:icon="@drawable/friends"
+        ></item>
+
+    <item
+        android:id="@+id/nav_find_friends"
+        android:title="Arkadaş Bul"
+        android:icon="@drawable/find_people"
+        ></item>
+
+    <item
+        android:id="@+id/nav_messages"
+        android:title="Mesajlarım"
+        android:icon="@drawable/messages"
+        ></item>
+
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Ayarlar"
+        android:icon="@drawable/settings"
+        ></item>
+
+    <item
+        android:id="@+id/nav_Logout"
+        android:title="Çıkış Yap"
+        android:icon="@drawable/logout"
+        ></item>
+
+</menu>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/xcodelogov4hq"
+        android:contentDescription="@string/xcode_logo" />
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_logo"
+        android:drawableLeft="@drawable/email"
+        android:background="@drawable/inputs"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="Mail Adresi..."
+        android:textColorHint="@color/secondarcolor"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_email"
+        android:drawableLeft="@drawable/password"
+        android:background="@drawable/inputs"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="Şifreniz..."
+        android:textColorHint="@color/secondarcolor"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/login_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_password"
+        android:background="@drawable/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Giriş Yap"
+        android:shadowColor="@color/secondarcolor"/>
+
+    <TextView
+        android:id="@+id/register_account_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_account"
+        android:layout_margin="10dp"
+        android:textColor="#8b0000"
+        android:layout_centerHorizontal="true"
+        android:text="Hesabınız Mı Yok ? Hemen Oluşturmak İçin Dokunun" />
+
+    <TextView
+        android:id="@+id/login_textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/register_account_link"
+        android:text="Veya" />
+
+    <TextView
+        android:id="@+id/login_textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/login_textView2"
+        android:layout_margin="10dp"
+        android:text="Diğer Hesaplarınızı Kullanarak Giriş Yapın" />
+
+    <ImageView
+        android:id="@+id/google_signin_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/login_textView3"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/google" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Şifrenizi mi Unuttunuz ?"
+        android:layout_below="@id/google_signin_button"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp"
+        android:textColor="#8b0000" />
+
+
+</RelativeLayout>

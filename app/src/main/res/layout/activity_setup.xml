@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".SetupActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/setup_profile_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/profile"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="2dp">
+
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <EditText
+        android:id="@+id/setup_username"
+        android:background="@drawable/inputs"
+        android:layout_below="@+id/setup_profile_image"
+        android:drawableLeft="@drawable/username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="25dp"
+        android:padding="11dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:hint="Profil Adınız..."/>
+
+    <EditText
+        android:id="@+id/setup_fullname"
+        android:background="@drawable/inputs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/name"
+        android:layout_below="@+id/setup_username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="25dp"
+        android:padding="11dp"
+        android:ems="10"
+        android:hint="Ad Soyad ..." />
+
+    <EditText
+        android:id="@+id/setup_countryname"
+        android:background="@drawable/inputs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/country"
+        android:layout_below="@+id/setup_fullname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="25dp"
+        android:padding="11dp"
+        android:ems="10"
+        android:hint="Ülkeniz..." />
+
+    <Button
+        android:id="@+id/setup_info_button"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/setup_countryname"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="Kaydet" />
+
+
+</RelativeLayout>
