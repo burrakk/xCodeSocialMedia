@@ -1,5 +1,4 @@
 package com.example.xcode;
-//git commit test1
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -145,12 +144,22 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 protected void onBindViewHolder(@NonNull PostsViewHolder holder, int position, @NonNull Posts model)
                 {
+                    final String PostKey = getRef(position).getKey();
                     holder.userName.setText(model.getuFullName());
                     holder.date.setText(model.getDate()+"  ");
                     holder.time.setText(model.getTime()+"  ");
                     holder.description.setText(model.getDescription());
                     Picasso.get().load(model.getPostimage()).into(holder.postimage);
                     Picasso.get().load(model.getProfileimage()).into(holder.profileimage);
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent editPostIntent = new Intent(MainActivity.this,PostDetailsonClick.class);
+                            editPostIntent.putExtra("PostKey",PostKey);
+                            startActivity(editPostIntent);
+
+                        }
+                    });
                 }
 
                 @NonNull
@@ -240,6 +249,13 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
+    private void SendUserToSettingsActivity() {
+        Intent settingsIntent = new Intent(MainActivity.this,SettingsActivity.class);
+        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(settingsIntent);
+        finish();
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
@@ -276,7 +292,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "Mesajlarım", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_settings:
-                Toast.makeText(this, "Ayarlarım", Toast.LENGTH_SHORT).show();
+                SendUserToSettingsActivity();
                 break;
             case R.id.nav_Logout:
                 mFirebaseAuth.signOut();
@@ -284,4 +300,6 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+
+
 }

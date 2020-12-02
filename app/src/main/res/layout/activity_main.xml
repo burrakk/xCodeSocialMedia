@@ -18,12 +18,12 @@
             layout="@layout/bar_layout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="xCode" />
+            app:title="xCode - Ana Sayfam" />
         <View
-            android:background="@color/black"
+            android:background="@drawable/login"
             android:layout_below="@+id/page_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="1dp" />
+            android:layout_height="2dp" />
 
         <FrameLayout
             android:id="@+id/main_frame"

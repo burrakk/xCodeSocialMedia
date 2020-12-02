@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".SettingsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/acc_settings_toolbar"
+        layout="@layout/bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Hesap Ayarları" />
+
+    <View
+        android:layout_below="@+id/acc_settings_toolbar"
+        android:background="@drawable/login"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/acc_settings_toolbar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/acc_settings_pp"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/profile">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <EditText
+                android:id="@+id/acc_settings_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acc_settings_pp"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/postshape"
+                android:hint="Profil Durumu"
+                android:padding="25dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/acc_settings_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acc_settings_status"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/postshape"
+                android:hint="Ad Soyad"
+                android:padding="25dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </EditText>
+
+            <EditText
+                android:id="@+id/acc_settings_counrty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acc_settings_name"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/postshape"
+                android:hint="Ülke"
+                android:padding="25dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </EditText>
+
+            <EditText
+                android:id="@+id/acc_settings_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acc_settings_counrty"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/postshape"
+                android:hint="Doğum Tarihi"
+                android:padding="25dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </EditText>
+
+            <EditText
+                android:id="@+id/acc_settings_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acc_settings_birth"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/postshape"
+                android:hint="Cinsiyet"
+                android:padding="25dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </EditText>
+
+            <EditText
+                android:id="@+id/acc_settings_relationstatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acc_settings_gender"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/postshape"
+                android:hint="İlişki Durumu"
+                android:padding="25dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </EditText>
+
+            <Button
+                android:id="@+id/acc_settings_updatebttn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@id/acc_settings_relationstatus"
+                android:layout_centerHorizontal="true"
+                android:text="Güncelle"
+                android:layout_margin="25dp"
+                android:background="@drawable/button"
+                android:textStyle="bold"
+                ></Button>
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
