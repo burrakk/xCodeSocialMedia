@@ -122,8 +122,9 @@ public class SetupActivity extends AppCompatActivity {
             {
                 loadingBar.setTitle("Profil Fotoğrafı");
                 loadingBar.setMessage(" Seçilen Fotoğraf Düzenleniyor...");
-                loadingBar.show();
                 loadingBar.setCanceledOnTouchOutside(true);
+                loadingBar.show();
+
                 Uri resultUri = result.getUri();
                 StorageReference filePath = userProfileRef.child(currentUserID + ".jpg");
                 filePath.putFile(resultUri);

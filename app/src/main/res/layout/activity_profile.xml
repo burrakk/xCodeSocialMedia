@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mProfile_toolbar"
+        layout="@layout/bar_layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/login"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Profilim" />
+
+    <View
+        android:background="@drawable/login"
+        android:layout_below="@+id/mProfile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <ScrollView
+        android:layout_below="@+id/mProfile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/mProfile_profileBG"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white">
+            </View>
+
+            <View
+                android:background="@drawable/login"
+                android:layout_below="@+id/mProfile_profileBG"
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <View
+                android:layout_marginTop="2dp"
+                android:background="@drawable/login"
+                android:layout_below="@+id/mProfile_profileBG"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/mProfile_pp"
+                android:layout_height="150dp"
+                android:layout_width="150dp"
+                android:layout_alignParentLeft="true"
+                app:civ_border_color="@color/secondarcolor"
+                app:civ_border_width="1dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/profile">
+
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/mProfile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/mProfile_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:layout_toRightOf="@+id/mProfile_name"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="5dp"
+                android:textAllCaps="false"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:textColor="@color/secondarcolor"
+                android:textAlignment="center">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/mProfile_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Country"
+                android:layout_below="@+id/mProfile_username"
+                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="13sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/mProfile_cakeday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Birth.Day"
+                android:layout_below="@+id/mProfile_country"
+                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="13sp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/mProfile_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:layout_below="@+id/mProfile_cakeday"
+                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="13sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/mProfile_relationshipstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relationship Status"
+                android:layout_below="@+id/mProfile_gender"
+                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="13sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/mProfile_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Status"
+                android:layout_below="@+id/mProfile_relationshipstatus"
+                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="13sp">
+
+            </TextView>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

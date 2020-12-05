@@ -256,6 +256,20 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
+    private void SendUserToProfileActivity() {
+        Intent profileIntent = new Intent(MainActivity.this,ProfileActivity.class);
+        profileIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(profileIntent);
+        finish();
+    }
+
+    private void SendUserToMainActivity() {
+        Intent mainIntent = new Intent(MainActivity.this , MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainIntent);
+        finish();
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
@@ -271,16 +285,16 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.nav_xcode:
-                Toast.makeText(this, "Xcode Oku", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "xCode Oku", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_profile:
-                Toast.makeText(this, "Profilim", Toast.LENGTH_SHORT).show();
+                SendUserToProfileActivity();
                 break;
             case R.id.nav_post:
                 SendUserToPostActivity();
                 break;
             case R.id.nav_home:
-                Toast.makeText(this, "Ana Sayfa", Toast.LENGTH_SHORT).show();
+                SendUserToMainActivity();
                 break;
             case R.id.nav_friends:
                 Toast.makeText(this, "Arkadaşlarım", Toast.LENGTH_SHORT).show();
@@ -300,6 +314,8 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+
+
 
 
 }

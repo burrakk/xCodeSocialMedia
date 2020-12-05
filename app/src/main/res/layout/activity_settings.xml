@@ -26,6 +26,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/acc_settings_toolbar">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -36,15 +37,32 @@
                 android:layout_height="250dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginVertical="20dp"
                 android:src="@drawable/profile">
             </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/acc_settings_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acc_settings_pp"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/postshape"
+                android:layout_centerHorizontal="true"
+                android:hint="Ad Soyad"
+                android:textAlignment="center"
+                android:padding="25dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </TextView>
+
 
             <EditText
                 android:id="@+id/acc_settings_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/acc_settings_pp"
+                android:layout_below="@+id/acc_settings_name"
                 android:layout_marginHorizontal="40dp"
                 android:background="@drawable/postshape"
                 android:hint="Profil Durumu"
@@ -55,25 +73,13 @@
 
             </EditText>
 
-            <EditText
-                android:id="@+id/acc_settings_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/acc_settings_status"
-                android:layout_marginHorizontal="40dp"
-                android:background="@drawable/postshape"
-                android:hint="Ad Soyad"
-                android:padding="25dp"
-                android:textColor="@color/design_default_color_primary_dark"
-                android:textSize="20sp"
-                android:textStyle="bold">
-            </EditText>
+
 
             <EditText
                 android:id="@+id/acc_settings_counrty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/acc_settings_name"
+                android:layout_below="@+id/acc_settings_status"
                 android:layout_marginHorizontal="40dp"
                 android:background="@drawable/postshape"
                 android:hint="Ülke"
