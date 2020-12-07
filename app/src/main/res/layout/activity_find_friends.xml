@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FindFriendsActivity"
+    android:background="@drawable/login">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/nav_find_friends"
+        layout="@layout/bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Arkadaş Bul" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_below="@+id/nav_find_friends"
+        android:background="@drawable/login"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <RelativeLayout
+        android:id="@+id/ff_searchRlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Etrafındaki insanları keşfet veya tanıdıklarına ulaş!"
+            android:textAlignment="center">
+        </TextView>
+
+        <EditText
+            android:id="@+id/ff_searchbox"
+            android:layout_width="300dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/text1"
+            android:background="@drawable/postshape"
+            android:hint="Sınıf Arkadaşınız..."
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/secondarcolor"
+            android:inputType="textCapWords"
+            android:textColor="@color/black"></EditText>
+
+        <ImageButton
+            android:id="@+id/ff_searchbttn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/text1"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/ff_searchbox"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/inputs"
+            android:src="@android:drawable/ic_menu_search">
+
+        </ImageButton>
+
+
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ff_searchResults"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ff_searchRlayout1"
+        android:layout_margin="10dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

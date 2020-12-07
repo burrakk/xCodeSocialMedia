@@ -101,5 +101,45 @@
             android:scaleType="centerCrop">
 
         </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="10dp">
+            
+            <ImageButton
+                android:id="@+id/fav_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:src="@drawable/favourite">
+
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/fav_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <ImageButton
+                android:id="@+id/comment_bttn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/comment"
+                android:background="@color/white"
+                android:layout_marginLeft="220dp"
+                android:baselineAlignBottom="false">
+
+            </ImageButton>
+
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -46,8 +46,9 @@ public class MainActivity extends AppCompatActivity
     private ImageButton addNewPostBtn;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private FirebaseAuth mFirebaseAuth;
-    private DatabaseReference uRef,postRef;
+    private DatabaseReference uRef,postRef,favRef;
     String getCurrentUid;
+    Boolean favStatus = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity
         getCurrentUid = mFirebaseAuth.getCurrentUser().getUid();
         uRef = FirebaseDatabase.getInstance().getReference().child("Users");
         postRef=FirebaseDatabase.getInstance().getReference().child("Posts");
+        favRef=FirebaseDatabase.getInstance().getReference().child("Favourites");
         setContentView(R.layout.activity_main);
         Toolbar pToolbar= (Toolbar)findViewById(R.id.page_toolbar);
         setSupportActionBar(pToolbar);
@@ -160,6 +162,38 @@ public class MainActivity extends AppCompatActivity
 
                         }
                     });
+
+                    holder.FavPostBttn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            favStatus = true;
+                            favRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(favStatus.equals(true))
+                                    {
+                                        if(snapshot.child(PostKey).hasChild(getCurrentUid))
+                                        {
+                                            favRef.child(PostKey).child(getCurrentUid).removeValue();
+                                            favStatus = false;
+                                        }
+                                        else {
+                                            favRef.child(PostKey).child(getCurrentUid).setValue(true);
+                                            favStatus = false;
+                                        }
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+                        }
+                    });
+                    holder.setFavButtonStatus(PostKey);
                 }
 
                 @NonNull
@@ -191,17 +225,55 @@ public class MainActivity extends AppCompatActivity
 
     public static class PostsViewHolder extends RecyclerView.ViewHolder
     {
-        TextView userName, description, time, date;
+        TextView userName, description, time, date, countFavstext;
         ImageView postimage;
         CircleImageView profileimage;
+        ImageButton FavPostBttn,LikePostBttn,CommentBttn;
+        int countFavs;
+        String currentUid;
+        DatabaseReference favsRef;
+
         public PostsViewHolder(@NonNull View itemView) {
             super(itemView);;
+            favsRef =FirebaseDatabase.getInstance().getReference().child("Favourites");
+            currentUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             userName = itemView.findViewById(R.id.post_user_name);
             description = itemView.findViewById(R.id.post_desc);
             date = itemView.findViewById(R.id.post_date);
             time = itemView.findViewById(R.id.post_time);
             postimage = itemView.findViewById(R.id.post_image);
             profileimage = itemView.findViewById(R.id.post_profile_image);
+            FavPostBttn = itemView.findViewById(R.id.fav_button);
+            countFavstext = itemView.findViewById(R.id.fav_count);
+            //LikePostBttn = itemView.findViewById(R.id.);
+            CommentBttn = itemView.findViewById(R.id.comment_bttn);
+        }
+
+        public void setFavButtonStatus (final String PostKey) {
+            favsRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.child(PostKey).hasChild(currentUid))
+                    {
+                        countFavs = (int) snapshot.child(PostKey).getChildrenCount();
+                        FavPostBttn.setImageResource(R.drawable.redhearth);
+                        countFavstext.setText(Integer.toString(countFavs));
+                    }
+                    else
+                    {
+                        countFavs = (int) snapshot.child(PostKey).getChildrenCount();
+                        FavPostBttn.setImageResource(R.drawable.favourite);
+                        countFavstext.setText(Integer.toString(countFavs));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
         }
     }
     //Sending For New Post Activity /nav+iconTL
@@ -270,6 +342,13 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
+    private void SendUserToFindFriendsActivity() {
+        Intent findfriendsIntent = new Intent(MainActivity.this , FindFriendsActivity.class);
+        findfriendsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(findfriendsIntent);
+        finish();
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
@@ -297,10 +376,9 @@ public class MainActivity extends AppCompatActivity
                 SendUserToMainActivity();
                 break;
             case R.id.nav_friends:
-                Toast.makeText(this, "Arkadaşlarım", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_find_friends:
-                Toast.makeText(this, "Arkadaşlarımı Bul", Toast.LENGTH_SHORT).show();
+                SendUserToFindFriendsActivity();
                 break;
             case R.id.nav_messages:
                 Toast.makeText(this, "Mesajlarım", Toast.LENGTH_SHORT).show();

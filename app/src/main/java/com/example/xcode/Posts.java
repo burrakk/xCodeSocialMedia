@@ -71,4 +71,6 @@ public class Posts {
     public void setuFullName(String uFullName) {
         this.uFullName = uFullName;
     }
+
+
 }

@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_logo"
         android:drawableLeft="@drawable/email"
-        android:background="@drawable/inputs"
+        android:background="@drawable/postshape"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:layout_margin="10dp"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_email"
         android:drawableLeft="@drawable/password"
-        android:background="@drawable/inputs"
+        android:background="@drawable/postshape"
         android:layout_margin="10dp"
         android:padding="10dp"
         android:hint="Şifreniz..."
@@ -51,39 +51,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_password"
-        android:background="@drawable/button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Giriş Yap"
-        android:shadowColor="@color/secondarcolor"/>
+        android:background="@drawable/button"
+        android:textAlignment="center"
+        android:drawableRight="@android:drawable/ic_menu_send"
+        android:shadowColor="@color/secondarcolor"
+        android:text="Giriş Yap" />
 
     <TextView
         android:id="@+id/register_account_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_account"
-        android:layout_margin="10dp"
+        android:layout_marginTop="50dp"
         android:textColor="#8b0000"
         android:layout_centerHorizontal="true"
-        android:text="Hesabınız Mı Yok ? Hemen Oluşturmak İçin Dokunun" />
-
-    <TextView
-        android:id="@+id/login_textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/register_account_link"
-        android:text="Veya" />
+        android:text="Şimdi Kayıt Ol" />
 
     <TextView
         android:id="@+id/login_textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/login_textView2"
+        android:layout_below="@+id/register_account_link"
         android:layout_margin="10dp"
-        android:text="Diğer Hesaplarınızı Kullanarak Giriş Yapın" />
+        android:text="Ya da Hesaplarınızı Kullanarak Giriş Yapın" />
 
     <ImageView
         android:id="@+id/google_signin_button"
@@ -100,7 +93,7 @@
         android:text="Şifrenizi mi Unuttunuz ?"
         android:layout_below="@id/google_signin_button"
         android:layout_centerHorizontal="true"
-        android:layout_margin="50dp"
+        android:layout_margin="40dp"
         android:textColor="#8b0000" />
 
 

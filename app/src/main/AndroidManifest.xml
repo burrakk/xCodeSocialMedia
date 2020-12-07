@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.XCode">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".CommentsActivity"></activity>
+        <activity android:name=".FindFriendsActivity" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".PostDetailsonClick" />
         <activity android:name=".PostActivity" />
