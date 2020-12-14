@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="#DCDCDC"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context=".SetupActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -20,21 +22,41 @@
 
     </de.hdodenhof.circleimageview.CircleImageView>
 
-    <EditText
-        android:id="@+id/setup_username"
-        android:background="@drawable/inputs"
-        android:layout_below="@+id/setup_profile_image"
-        android:drawableLeft="@drawable/username"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginHorizontal="25dp"
-        android:padding="11dp"
+    <RelativeLayout
+        android:id="@+id/setup_usernamearea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:hint="Profil Adınız..."/>
+        android:layout_below="@+id/setup_profile_image"
+        android:layout_marginTop="5dp">
+        <EditText
+            android:id="@+id/setup_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_round_corner"
+            android:drawableLeft="@drawable/username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:padding="20dp"
+            android:ems="10"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:background="#DCDCDC"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Profil Adınız"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
+
+
+
 
     <EditText
         android:id="@+id/setup_fullname"
@@ -42,13 +64,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/name"
-        android:layout_below="@+id/setup_username"
+        android:layout_below="@+id/setup_usernamearea"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:layout_marginHorizontal="25dp"
         android:padding="11dp"
         android:ems="10"
-        android:hint="Ad Soyad ..." />
+        android:hint="Ad Soyad ..."
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/setup_countryname"
@@ -62,7 +85,8 @@
         android:layout_marginHorizontal="25dp"
         android:padding="11dp"
         android:ems="10"
-        android:hint="Ülkeniz..." />
+        android:hint="Ülkeniz..."
+        android:inputType=""/>
 
     <Button
         android:id="@+id/setup_info_button"

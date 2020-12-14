@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="#DCDCDC"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -16,41 +18,76 @@
         app:srcCompat="@drawable/xcodelogov4hq"
         android:contentDescription="@string/xcode_logo" />
 
-    <EditText
-        android:id="@+id/login_email"
+    <RelativeLayout
+        android:id="@+id/mail_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_below="@+id/login_logo"
-        android:drawableLeft="@drawable/email"
-        android:background="@drawable/postshape"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:hint="Mail Adresi..."
-        android:textColorHint="@color/secondarcolor"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:layout_marginTop="100dp">
+        <EditText
+            android:id="@+id/login_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_round_corner"
+            android:drawableLeft="@drawable/email"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:inputType="textEmailAddress"/>
 
-    <EditText
-        android:id="@+id/login_password"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Mail Adresi"
+            android:background="#DCDCDC"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/password_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_email"
-        android:drawableLeft="@drawable/password"
-        android:background="@drawable/postshape"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:hint="Şifreniz..."
-        android:textColorHint="@color/secondarcolor"
-        android:ems="10"
-        android:inputType="textPassword" />
+        android:layout_marginHorizontal="10dp"
+        android:layout_below="@+id/mail_section">
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_round_corner"
+            android:drawableLeft="@drawable/password"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Şifre"
+            android:background="#DCDCDC"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/login_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_password"
+        android:layout_below="@+id/password_section"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/button"
@@ -65,35 +102,37 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/login_account"
         android:layout_marginTop="50dp"
+        android:textStyle="bold"
         android:textColor="#8b0000"
         android:layout_centerHorizontal="true"
         android:text="Şimdi Kayıt Ol" />
-
-    <TextView
-        android:id="@+id/login_textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/register_account_link"
-        android:layout_margin="10dp"
-        android:text="Ya da Hesaplarınızı Kullanarak Giriş Yapın" />
 
     <ImageView
         android:id="@+id/google_signin_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/login_textView3"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_below="@+id/register_account_link"
         app:srcCompat="@drawable/google" />
+    <TextView
+        android:id="@+id/login_textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/google_signin_button"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/register_account_link"
+        android:text="Google ile Giriş Yapın" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Şifrenizi mi Unuttunuz ?"
-        android:layout_below="@id/google_signin_button"
+        android:layout_below="@id/login_textView3"
         android:layout_centerHorizontal="true"
-        android:layout_margin="40dp"
+        android:layout_margin="32dp"
         android:textColor="#8b0000" />
 
 

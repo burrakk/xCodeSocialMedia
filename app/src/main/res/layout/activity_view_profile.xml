@@ -6,23 +6,23 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusableInTouchMode="true"
-    tools:context=".ProfileActivity">
+    tools:context=".ViewProfileActivity">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/mProfile_toolbar"
+        android:id="@+id/vProfile_toolbar"
         layout="@layout/bar_layout"
         android:layout_width="match_parent"
-        android:background="#DCDCDC"
+        android:background="@drawable/login"
         android:layout_height="?attr/actionBarSize"
-        app:title="Profilim" />
+        app:title="Profil Görüntüle" />
 
     <View
         android:background="@drawable/login"
-        android:layout_below="@+id/mProfile_toolbar"
+        android:layout_below="@+id/vProfile_toolbar"
         android:layout_width="match_parent"
         android:layout_height="2dp" />
 
     <ScrollView
-        android:layout_below="@+id/mProfile_toolbar"
+        android:layout_below="@+id/vProfile_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -31,33 +31,33 @@
             android:layout_height="match_parent">
 
             <View
-                android:id="@+id/mProfile_profileBG"
+                android:id="@+id/vProfile_profileBG"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="280dp"
                 android:layout_marginTop="2dp"
                 android:background="@color/white">
             </View>
 
             <View
                 android:background="@drawable/login"
-                android:layout_below="@+id/mProfile_profileBG"
+                android:layout_below="@+id/vProfile_profileBG"
                 android:layout_width="match_parent"
                 android:layout_height="2dp" />
 
             <View
                 android:layout_marginTop="2dp"
                 android:background="@drawable/login"
-                android:layout_below="@+id/mProfile_profileBG"
+                android:layout_below="@+id/vProfile_profileBG"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/mProfile_pp"
+                android:id="@+id/vProfile_pp"
                 android:layout_height="150dp"
                 android:layout_width="150dp"
                 android:layout_alignParentLeft="true"
-                app:civ_border_color="@color/secondarcolor"
+                app:civ_border_color="@color/black"
                 app:civ_border_width="1dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginLeft="15dp"
@@ -66,11 +66,11 @@
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <TextView
-                android:id="@+id/mProfile_name"
+                android:id="@+id/vProfile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Full Name"
-                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_toRightOf="@+id/vProfile_pp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="5dp"
@@ -83,11 +83,11 @@
             </TextView>
 
             <TextView
-                android:id="@+id/mProfile_username"
+                android:id="@+id/vProfile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="username"
-                android:layout_toRightOf="@+id/mProfile_name"
+                android:layout_toRightOf="@+id/vProfile_name"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="5dp"
                 android:textAllCaps="false"
@@ -100,12 +100,12 @@
 
 
             <TextView
-                android:id="@+id/mProfile_country"
+                android:id="@+id/vProfile_country"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Country"
-                android:layout_below="@+id/mProfile_username"
-                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_below="@+id/vProfile_username"
+                android:layout_toRightOf="@+id/vProfile_pp"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
@@ -116,12 +116,12 @@
             </TextView>
 
             <TextView
-                android:id="@+id/mProfile_cakeday"
+                android:id="@+id/vProfile_cakeday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Birth.Day"
-                android:layout_below="@+id/mProfile_country"
-                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_below="@+id/vProfile_country"
+                android:layout_toRightOf="@+id/vProfile_pp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
@@ -131,12 +131,12 @@
 
             </TextView>
             <TextView
-                android:id="@+id/mProfile_gender"
+                android:id="@+id/vProfile_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gender"
-                android:layout_below="@+id/mProfile_cakeday"
-                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_below="@+id/vProfile_cakeday"
+                android:layout_toRightOf="@+id/vProfile_pp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
@@ -147,12 +147,12 @@
             </TextView>
 
             <TextView
-                android:id="@+id/mProfile_relationshipstatus"
+                android:id="@+id/vProfile_relationshipstatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Relationship Status"
-                android:layout_below="@+id/mProfile_gender"
-                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_below="@+id/vProfile_gender"
+                android:layout_toRightOf="@+id/vProfile_pp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
@@ -163,12 +163,12 @@
             </TextView>
 
             <TextView
-                android:id="@+id/mProfile_status"
+                android:id="@+id/vProfile_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="My Status"
-                android:layout_below="@+id/mProfile_relationshipstatus"
-                android:layout_toRightOf="@+id/mProfile_pp"
+                android:layout_below="@+id/vProfile_relationshipstatus"
+                android:layout_toRightOf="@+id/vProfile_pp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
@@ -177,6 +177,28 @@
                 android:textSize="13sp">
 
             </TextView>
+
+            <Button
+                android:id="@+id/vProfile_sendfriendrequestBtn"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vProfile_status"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/ic_shortcut_person_add"
+                android:text="İstek Gönder"></Button>
+
+            <Button
+                android:id="@+id/vProfile_declinefriendrequestBtn"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vProfile_status"
+                android:layout_marginLeft="215dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/ic_shortcut_person_add_disabled"
+                android:text="İsteği Reddet"></Button>
+
+
 
 
         </RelativeLayout>

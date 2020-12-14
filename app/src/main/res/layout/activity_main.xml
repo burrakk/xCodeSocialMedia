@@ -5,7 +5,9 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="#DCDCDC"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -18,7 +20,7 @@
             layout="@layout/bar_layout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="xCode - Ana Sayfam" />
+            app:title="Duvar" />
         <View
             android:background="@drawable/login"
             android:layout_below="@+id/page_toolbar"
@@ -29,7 +31,8 @@
             android:id="@+id/main_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/page_toolbar">
+            android:layout_below="@+id/page_toolbar"
+            android:layout_marginTop="4dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/news_user_posts"
@@ -39,19 +42,15 @@
 
         <ImageButton
             android:id="@+id/add_new_post_btn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_above="@id/main_frame"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:baselineAlignBottom="false"
-            android:focusableInTouchMode="false"
-            android:scaleType="fitCenter"
-            android:background="@null"
-            android:src="@drawable/add_post" />
+            android:scaleType="centerInside"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#DCDCDC"
+            android:src="@drawable/ic_action_add_photo_alternate" />
 
     </RelativeLayout>
 
@@ -61,6 +60,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginBottom="3dp"
+        app:itemIconTint="@android:color/black"
+        android:background="@color/white"
         app:menu="@menu/nav_menu"></com.google.android.material.navigation.NavigationView>
 
 

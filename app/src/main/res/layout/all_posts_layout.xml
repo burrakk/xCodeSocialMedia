@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/postshape"
         android:orientation="vertical"
-        android:layout_marginBottom="5dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginBottom="2dp"
+        android:layout_marginHorizontal="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,6 +47,16 @@
                         android:layout_marginLeft="5dp"
                         android:padding="2dp">
 
+                        <ImageButton
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:scaleType="centerInside"
+                            android:background="@color/white"
+                            android:src="@drawable/calendar">
+
+                        </ImageButton>
+
                         <TextView
                             android:id="@+id/post_date"
                             android:layout_width="wrap_content"
@@ -72,7 +81,7 @@
                             android:id="@+id/text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=" tarihinde paylaştı."
+                            android:text="tarihinde paylaştı."
                             android:textColor="#70000000"
                             android:textSize="12sp"
                             android:textStyle="bold">
@@ -102,6 +111,13 @@
 
         </ImageView>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/login">
+
+        </View>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,8 +126,10 @@
             
             <ImageButton
                 android:id="@+id/fav_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
                 android:background="@color/white"
                 android:src="@drawable/favourite">
 
@@ -130,16 +148,72 @@
             </TextView>
 
             <ImageButton
-                android:id="@+id/comment_bttn"
+                android:id="@+id/like_bttn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/like"
+                android:background="@color/white"
+                android:layout_marginLeft="25dp">
+
+            </ImageButton>
+            <TextView
+                android:id="@+id/like_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/comment"
+                android:text="1"
+                android:textColor="@color/black"
                 android:background="@color/white"
-                android:layout_marginLeft="220dp"
-                android:baselineAlignBottom="false">
+                android:textStyle="bold">
+
+            </TextView>
+
+            <ImageButton
+                android:id="@+id/dislike_bttn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/dislike"
+                android:background="@color/white">
 
             </ImageButton>
 
+
+            <ImageButton
+                android:id="@+id/comment_bttn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:layout_marginLeft="50dp"
+                android:background="@color/white"
+                android:baselineAlignBottom="false"
+                android:src="@drawable/ic_shortcut_comment">
+
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:background="@color/white"
+                android:src="@drawable/ic_shortcut_share">
+
+            </ImageButton>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -3,9 +3,20 @@
 
     <item
         android:id="@+id/nav_xcode"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@drawable/ic_action_camera_alt"
         android:title="xCode Oku"></item>
 
+    <item
+        android:id="@+id/nav_home"
+        android:title="Duvar"
+        android:icon="@drawable/ic_action_dashboard"
+        ></item>
+
+    <item
+        android:id="@+id/nav_post"
+        android:title="Paylaş"
+        android:icon="@drawable/ic_action_add_photo_alternate"
+        ></item>
 
     <item
         android:id="@+id/nav_profile"
@@ -14,46 +25,33 @@
         ></item>
 
     <item
-        android:id="@+id/nav_post"
-        android:title="Yeni Gönderi"
-        android:icon="@drawable/add_post"
-        ></item>
-
-
-    <item
-        android:id="@+id/nav_home"
-        android:title="Ana Sayfa"
-        android:icon="@drawable/home"
+        android:id="@+id/nav_messages"
+        android:title="Mesajlar"
+        android:icon="@drawable/messages"
         ></item>
 
     <item
         android:id="@+id/nav_friends"
-        android:title="Arkadaşlarım"
+        android:title="Arkadaşlar"
         android:icon="@drawable/friends"
         ></item>
 
     <item
         android:id="@+id/nav_find_friends"
         android:title="Arkadaş Bul"
-        android:icon="@drawable/find_people"
-        ></item>
-
-    <item
-        android:id="@+id/nav_messages"
-        android:title="Mesajlarım"
-        android:icon="@drawable/messages"
+        android:icon="@drawable/addfriends"
         ></item>
 
     <item
         android:id="@+id/nav_settings"
-        android:title="Ayarlar"
-        android:icon="@drawable/settings"
+        android:title="Profili Düzenle"
+        android:icon="@drawable/ic_action_settings_applications"
         ></item>
 
     <item
         android:id="@+id/nav_Logout"
         android:title="Çıkış Yap"
-        android:icon="@drawable/logout"
+        android:icon="@drawable/ic_action_exit_to_app"
         ></item>
 
 </menu>

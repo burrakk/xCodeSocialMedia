@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.XCode">
-        <activity android:name=".CommentsActivity"></activity>
+        <activity android:name=".xCodeScanActivity"></activity>
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ViewProfileActivity" />
+        <activity android:name=".CommentsActivity" />
         <activity android:name=".FindFriendsActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SettingsActivity" />
@@ -25,13 +37,7 @@
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:launchMode="standard"
             tools:replace="android:launchMode" />
-        <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity

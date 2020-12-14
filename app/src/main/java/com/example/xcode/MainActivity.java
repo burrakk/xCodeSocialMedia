@@ -29,6 +29,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -54,7 +55,6 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
         mFirebaseAuth = FirebaseAuth.getInstance();
         getCurrentUid = mFirebaseAuth.getCurrentUser().getUid();
         uRef = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar pToolbar= (Toolbar)findViewById(R.id.page_toolbar);
         setSupportActionBar(pToolbar);
-        getSupportActionBar().setTitle("Ana Sayfa");
+        getSupportActionBar().setTitle("Duvar");
 
         addNewPostBtn = (ImageButton)findViewById(R.id.add_new_post_btn);
 
@@ -137,9 +137,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+        Query SortPostDescending = postRef.orderByChild("counter");
+
         FirebaseRecyclerOptions<Posts> options =
                 new FirebaseRecyclerOptions.Builder<Posts>()
-                        .setQuery(postRef,Posts.class)
+                        .setQuery(SortPostDescending,Posts.class)
                         .build();
         FirebaseRecyclerAdapter<Posts,PostsViewHolder>firebaseRecyclerAdapter =
             new FirebaseRecyclerAdapter<Posts, PostsViewHolder>(options) {
@@ -160,6 +162,15 @@ public class MainActivity extends AppCompatActivity
                             editPostIntent.putExtra("PostKey",PostKey);
                             startActivity(editPostIntent);
 
+                        }
+                    });
+
+                    holder.CommentBttn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent commentIntent = new Intent(MainActivity.this,CommentsActivity.class);
+                            commentIntent.putExtra("PostKey",PostKey);
+                            startActivity(commentIntent);
                         }
                     });
 
@@ -348,6 +359,12 @@ public class MainActivity extends AppCompatActivity
         startActivity(findfriendsIntent);
         finish();
     }
+    private void SendUserToScanActivity() {
+        Intent scanIntent = new Intent(MainActivity.this , xCodeScanActivity.class);
+        scanIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(scanIntent);
+        finish();
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
@@ -364,7 +381,7 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.nav_xcode:
-                Toast.makeText(this, "xCode Oku", Toast.LENGTH_SHORT).show();
+                SendUserToScanActivity();
                 break;
             case R.id.nav_profile:
                 SendUserToProfileActivity();

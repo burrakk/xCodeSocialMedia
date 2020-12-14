@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primcolor">#ed4c63</color>
-    <color name="secondarcolor">#A0A0A0</color>
-    <color name="creamy">#FFFFD5</color>
+    <color name="primcolor">#A0A0A0</color>
+    <color name="secondarcolor">#DCDCDC</color>
+    <color name="creamy">#FFFFFFFF</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>

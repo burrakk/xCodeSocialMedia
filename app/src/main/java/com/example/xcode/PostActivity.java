@@ -5,12 +5,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -45,11 +48,13 @@ public class PostActivity extends AppCompatActivity {
     private Button sPostBtn;
     private static final int Gallery_Pick=1;
     private Uri imageUri;
-    private String desc,saveCurrentDate,saveCurrentTime,postID,downloadURL,currentUid;
+    private String desc,saveCurrentDate,saveCurrentTime,saveCurrentTimeSec,postID,downloadURL,currentUid;
 
     private StorageReference PostRef;
     private DatabaseReference uRef,dbPostRef;
     private FirebaseAuth mAuth;
+
+    private long  postCount = 0;
 
 
     @Override
@@ -113,14 +118,16 @@ public class PostActivity extends AppCompatActivity {
 
     private void StoreImageToFirebase() {
         Calendar postDate = Calendar.getInstance();
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd MMM yyyy");
         saveCurrentDate = currentDate.format(postDate.getTime());
 
         Calendar postTime = Calendar.getInstance();
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat currentTimeSEC = new SimpleDateFormat("HH:mm:ss");
         saveCurrentTime = currentTime.format(postTime.getTime());
+        saveCurrentTimeSec = currentTimeSEC.format(postTime.getTime());
 
-        postID = saveCurrentDate+saveCurrentTime;
+        postID = saveCurrentDate+saveCurrentTime+saveCurrentTimeSec;
 
         StorageReference filePath = PostRef.child("Post_Images").child(imageUri.getLastPathSegment()+postID+".jpg");
         filePath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -140,6 +147,25 @@ public class PostActivity extends AppCompatActivity {
 }
 
     private void SavePostDescToDB() {
+        dbPostRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    postCount = snapshot.getChildrenCount();
+                }
+                else{
+                    postCount = 0 ;
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         uRef.child(currentUid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -154,6 +180,7 @@ public class PostActivity extends AppCompatActivity {
                     postsMap.put("postimage",downloadURL);
                     postsMap.put("profileimage",userProfileImage);
                     postsMap.put("uFullName",userFullName);
+                    postsMap.put("counter",postCount);
                     dbPostRef.child(currentUid+postID).updateChildren(postsMap).addOnCompleteListener(new OnCompleteListener() {
                         @Override
                         public void onComplete(@NonNull Task task) {
@@ -223,5 +250,13 @@ public class PostActivity extends AppCompatActivity {
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
+    }
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }

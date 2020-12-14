@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -92,6 +95,16 @@ public class FindFriendsActivity extends AppCompatActivity {
                         holder.status.setText(model.getStatus());
                         Picasso.get().load(model.getProfileimage()).into(holder.profileimage);;
 
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String selected_uid = getRef(position).getKey();
+                                Intent profileIntent = new Intent(FindFriendsActivity.this,ViewProfileActivity.class);
+                                profileIntent.putExtra("selected_uid",selected_uid);
+                                startActivity(profileIntent);
+                            }
+                        });
+
                     }
 
                     @NonNull
@@ -120,7 +133,6 @@ public class FindFriendsActivity extends AppCompatActivity {
     public static class FindFriendsViewHolder extends RecyclerView.ViewHolder
     {
         TextView fullname,status;
-        View mView;
         CircleImageView profileimage;
 
         public FindFriendsViewHolder(@NonNull View itemView) {
@@ -138,5 +150,13 @@ public class FindFriendsActivity extends AppCompatActivity {
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
+    }
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }
