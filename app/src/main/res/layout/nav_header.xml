@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="250dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/header2">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/header_pp"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerInParent="true"
-        app:civ_border_color="@color/black"
-        app:civ_border_width="2dp" />
-
     <TextView
         android:id="@+id/nav_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ahmet Mehmet"
-        android:textColor="@color/creamy"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:padding="10dp"
         android:textSize="16sp"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:textColorHighlight="@color/white"/>
+        android:background="@drawable/postshape"
+        android:textColorHighlight="@color/black"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/header_pp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/nav_username"
+        android:layout_centerHorizontal="true"
+        app:civ_border_color="@color/secondarcolor"
+        app:civ_border_width="1dp" />
+
+    <TextView
+        android:id="@+id/nav_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_pp"
+        android:text="Profil Durum"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:background="@drawable/postshape"
+        android:layout_centerHorizontal="true"
+        android:textColorHighlight="@color/black"/>
 </RelativeLayout>

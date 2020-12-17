@@ -65,7 +65,6 @@ public class xCodeScanActivity extends AppCompatActivity {
                     profileIntent.putExtra("selected_uid",selected_uid);
                     startActivity(profileIntent);
                     finish();
-
                 }
                 else
                 {

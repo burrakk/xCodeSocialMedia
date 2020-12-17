@@ -7,8 +7,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference profileRef;
     private String currentUid;
+    private ImageButton xcodeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class ProfileActivity extends AppCompatActivity {
         userRelation = (TextView) findViewById(R.id.mProfile_relationshipstatus);
         userBirth = (TextView) findViewById(R.id.mProfile_cakeday);
         userPP = (CircleImageView) findViewById(R.id.mProfile_pp);
+        xcodeView = (ImageButton)findViewById(R.id.xcode_viewBtn);
 
         profileRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -86,7 +90,15 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        xcodeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendUserToGenerateXCode();
+            }
+        });
+
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -105,5 +117,13 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(mainIntent);
         finish();
     }
+
+    private void SendUserToGenerateXCode() {
+        Intent xCodeGenerateIntent = new Intent(ProfileActivity.this , GenerateXCodeActivity.class);
+        xCodeGenerateIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(xCodeGenerateIntent);
+        finish();
+    }
+
 
 }

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
 {
 
     private CircleImageView nav_headerpp;
-    private TextView nav_profilename;
+    private TextView nav_profilename,nav_status;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private RecyclerView postlist;
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity
         View navView = navigationView.inflateHeaderView(R.layout.nav_header);
         nav_headerpp = (CircleImageView)navView.findViewById(R.id.header_pp);
         nav_profilename = (TextView) navView.findViewById(R.id.nav_username);
+        nav_status = (TextView) navView.findViewById(R.id.nav_status);
 
         postlist = (RecyclerView)findViewById(R.id.news_user_posts);
         postlist.setHasFixedSize(true);
@@ -92,7 +93,9 @@ public class MainActivity extends AppCompatActivity
                     if(dataSnapshot.hasChild("fullname"))
                     {
                         String fullname = dataSnapshot.child("fullname").getValue().toString();
+                        String status = dataSnapshot.child("status").getValue().toString();
                         nav_profilename.setText(fullname);
+                        nav_status.setText(status);
                     }
                     if(dataSnapshot.hasChild("profileimage"))
                     {
@@ -365,6 +368,12 @@ public class MainActivity extends AppCompatActivity
         startActivity(scanIntent);
         finish();
     }
+    private void SendUserToFriendsActivity() {
+        Intent scanIntent = new Intent(MainActivity.this , FriendsActivity.class);
+        scanIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(scanIntent);
+        finish();
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
@@ -393,6 +402,7 @@ public class MainActivity extends AppCompatActivity
                 SendUserToMainActivity();
                 break;
             case R.id.nav_friends:
+                SendUserToFriendsActivity();
                 break;
             case R.id.nav_find_friends:
                 SendUserToFindFriendsActivity();
